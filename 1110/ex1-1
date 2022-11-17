@@ -1,0 +1,12 @@
+<?php
+
+  $score = [101,102,104,105,106];
+  $value = 0;
+
+  for ($i=0;$i < count($score)-1;$i++){
+    $value = $value + $score[$i];
+    echo $score[$i].'+';
+  }
+  //echo $score[count($score)]."=".$value;
+
+?>
