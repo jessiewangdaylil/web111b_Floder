@@ -12,23 +12,33 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//user group
+Route::prefix('/user')->group(function(){
+//1
+//2
+//3
+//4
+});
 
+// 11/11 group
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/hello','App\Http\Controllers\SiteController@hello');
+Route::prefix('/1111')->group(function(){
 
-Route::get('dashboard_test','App\Http\Controllers\SiteController@dashboard_test');
-
-Route::prefix('/user')->group(function(){
-Route::get('/','App\Http\Controllers\UserController@user');
-//Route::get('/user','App\Http\Controllers\UserController@user');
-
+Route::get('/hello','App\Http\Controllers\SiteController@hello');//1
+Route::get('dashboard_test','App\Http\Controllers\SiteController@dashboard_test');//2
+Route::get('/','App\Http\Controllers\UserController@user');//3
 Route::get('/{post}/comments/{comments}',function($post,$comment){
-  return "post $post , comments $comment";
+    return "post $post , comments $comment";
+    }); //4
 });
 
-//Route::get('/user/{post}/comments/{comments}',function($post,$comment){
- // return "post $post , comments $comment";
-
+// 11/18 group
+Route::prefix('/1118')->group(function(){
+Route::get('forecast1','App\Http\Controllers\SiteController@hello_forcast');//1
+//2
+//3
+//4
+Route::resource('posts','App\Http\Controllers\PostController');
 });
