@@ -18,5 +18,8 @@ class SiteController extends Controller
       $weather='多雲';
       return view('ViewToController_variable',compact('date','weather'));
     }
+    public function section_test(){
+      return view('section_test');
+    }
 
 }

@@ -1,0 +1,5 @@
+@extends('Fathers.dashboard_Yellow')
+@section('title','副標題')
+@section('mainTitle','我是主標題')
+@section('pageName','頁面名稱')
+@section('URL')
