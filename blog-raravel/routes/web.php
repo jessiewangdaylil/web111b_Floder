@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Http\Request;
+use App\Http\Controllers\SiteController;//方法三 :到Controller 複製
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -47,11 +48,36 @@ Route::prefix('/1118')->group(function(){
     Route::get('sectionTest','SiteController@section_test');//2
     //3
     //4
-    Route::resource('posts','PostController');//resource 1
+    Route::resource('posts','siteController');//resource 1
   });
 
 
 });
+
+
+// 11/28 group
+//
+Route::get('/demo','App\Http\Controllers\SiteController@demo');
+
+//方法一
+// Route::get('demo',function(){
+//   return view('demo');
+// });
+//方法二
+// Route::get('demo',function(){
+//   return view('demo');
+// })->name('mydemo');
+Route::get('/url',function(){
+  //方法一
+  //return url('demo');
+  //方法二
+  // return route('mydemo');
+  //方法三
+  return action([SiteController::class,'demo']);
+});
+//Request 取得請求資料
+Route::get('/demo1','App\Http\Controllers\SiteController@demo1');
+Route::Post('/posts','App\Http\Controllers\PostController@store');
 
 
 //Jessie 的模板

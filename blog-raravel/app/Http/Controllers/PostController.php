@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class PostController extends Controller
 {
@@ -34,7 +36,29 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //返回到Index 頁面:
+        // return redirect(url(''));
+
+        //  return $request->all();
+        //Controller 中寫驗證方法一:
+        // $this->validate($request,[
+        //   'title' => 'required|max:5',
+        //   'body' => 'required|min:2'
+        // ]);
+        //Controller 中寫驗證方法二:
+      $validator = Validator::make($request->all(),[
+          'title' => 'required|max:5',
+          'body' => 'required|min:2'
+        ]);
+        if ($validator ->fails()){
+          dd($validator);
+        }
+        return 'ok';
+
+      // return "first line";
+
+
+
     }
 
     /**
@@ -66,6 +90,7 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    //2022 11 28 Request 物件
     public function update(Request $request, $id)
     {
         //
@@ -80,5 +105,9 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function doAny(Request $request){
+      // return $request->title;
+      return var_dump($request->only('x'));
     }
 }
