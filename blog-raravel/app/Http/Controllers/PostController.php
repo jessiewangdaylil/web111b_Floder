@@ -25,7 +25,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        $months=['一','二','三','四','五','六','七','八','九','十','十一','十二',];
+        return view('posts.create',compact('months'));
     }
 
     /**
@@ -34,8 +35,28 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
+
+
+
+    if ($request->hasFile('pic')) {
+        $file = $request->file('pic');  //獲取UploadFile例項
+        if ( $file->isValid()) { //判斷檔案是否有效
+            //$filename = $file->getClientOriginalName(); //檔案原名稱
+            $extension = $file->getClientOriginalExtension(); //副檔名
+            $fileName = time() . "." . $extension;    //重新命名
+            //$data['pic'] = $filename;
+            $path = $file->storeAs('public/storage/pic',$fileName); //儲存至指定目錄
+        }
+    }
+
+
+
+
+
+
+        return $request->all();
         //返回到Index 頁面:
         // return redirect(url(''));
 
@@ -46,19 +67,14 @@ class PostController extends Controller
         //   'body' => 'required|min:2'
         // ]);
         //Controller 中寫驗證方法二:
-      $validator = Validator::make($request->all(),[
-          'title' => 'required|max:5',
-          'body' => 'required|min:2'
-        ]);
-        if ($validator ->fails()){
-          dd($validator);
-        }
-        return 'ok';
-
-      // return "first line";
-
-
-
+      // $validator = Validator::make($request->all(),[
+      //     'title' => 'required|max:5',
+      //     'body' => 'required|min:2'
+      //   ]);
+      //   if ($validator ->fails()){
+      //     dd($validator);
+      //   }
+      //   return 'ok';
     }
 
     /**
