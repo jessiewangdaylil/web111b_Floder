@@ -20,3 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::apiResource('api-posts','App\Http\Controllers\API_Controllers\ApiController');
 
 Route::any('pass','App\Http\Controllers\PostController@doAny');
+Route::any('items','App\Http\Controllers\ItemController@item');

@@ -80,6 +80,21 @@ Route::get('/demo1','App\Http\Controllers\SiteController@demo1');
 Route::Post('/posts','App\Http\Controllers\PostController@store');
 
 
+// 11/30 group
+Route::prefix('/1130')->group(function(){
+  //控制器位置:App\Http\Controllers
+  Route::namespace('App\Http\Controllers')->group(function(){
+    Route::resource('posts','PostController');//resource 1
+    //2
+    //3
+    //
+  });
+});
+
+
+
+
+
 //Jessie 的模板
 // // 11/18 group
 // Route::prefix('/1111')->group(function(){
