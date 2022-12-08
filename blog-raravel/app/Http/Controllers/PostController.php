@@ -40,15 +40,15 @@ class PostController extends Controller
 
 
 
-    if ($request->hasFile('pic')) {
-        $file = $request->file('pic');  //獲取UploadFile例項
-        if ( $file->isValid()) { //判斷檔案是否有效
-            //$filename = $file->getClientOriginalName(); //檔案原名稱
-            $extension = $file->getClientOriginalExtension(); //副檔名
-            $fileName = time() . "." . $extension;    //重新命名
-            //$data['pic'] = $filename;
-            $path = $file->storeAs('public/storage/pic',$fileName); //儲存至指定目錄
-        }
+    // if ($request->hasFile('pic')) {
+    //     $file = $request->file('pic');  //獲取UploadFile例項
+    //     if ( $file->isValid()) { //判斷檔案是否有效
+    //         //$filename = $file->getClientOriginalName(); //檔案原名稱
+    //         $extension = $file->getClientOriginalExtension(); //副檔名
+    //         $fileName = time() . "." . $extension;    //重新命名
+    //         //$data['pic'] = $filename;
+    //         $path = $file->storeAs('public/storage/pic',$fileName); //儲存至指定目錄
+    //     }
     }
 
 

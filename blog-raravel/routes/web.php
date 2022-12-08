@@ -90,6 +90,19 @@ Route::prefix('/1130')->group(function(){
     //
   });
 });
+// Jessie 的模板
+// 12/02 group
+Route::prefix('/1202')->group(function(){
+  //控制器位置:App\Http\Controllers
+  Route::namespace('App\Http\Controllers')->group(function(){
+    Route::resource('article','ArticleController');//resource 1
+    //2
+    //3
+    //
+
+  });
+
+});
 
 
 
