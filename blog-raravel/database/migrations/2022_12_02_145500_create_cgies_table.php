@@ -19,7 +19,8 @@ return new class extends Migration
             $table->string('pic',255)->nullable();
             $table->text('desc')->nullable();
             $table->boolean('enabled')->defult(0);
-            $table->integer('sort')->defult(0);
+            $table->timestamp('enabled_at')->nullable();
+            $table->integer('sort');
             $table->timestamps();
         });
     }
