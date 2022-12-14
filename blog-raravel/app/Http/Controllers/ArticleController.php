@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Requests\ArticleRequest;
+use App\Models\Article;
+use App\Models\Cgy;
+use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
@@ -24,8 +26,8 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        $category = ['1'=>'分類一','2'=>'分類二','3'=>'分類三'];
-        return view('article.create',compact('category'));
+        $category = ['1' => '分類一', '2' => '分類二', '3' => '分類三'];
+        return view('article.create', compact('category'));
     }
 
     /**
@@ -83,4 +85,11 @@ class ArticleController extends Controller
     {
         //
     }
+    public function relaCgy($cgy_id)
+    {
+        $cgy = Article::find($cgy_id)->cgy;
+        // dd($atricle->cgy->subject);
+        dd($cgy->subject);
+    }
+
 }

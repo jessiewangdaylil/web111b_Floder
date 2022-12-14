@@ -2,11 +2,9 @@
 
 namespace Database\Seeders;
 
-use Carbon\Carbon;
-use Faker\Factory;
 use App\Models\Cgy;
+use Faker\Factory;
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class CgySeeder extends Seeder
 {
@@ -18,12 +16,10 @@ class CgySeeder extends Seeder
     public function run()
     {
         Cgy::truncate();
-        $loop =20;
-          Cgy::factory()->times(100)->create();
 
+        Cgy::factory()->times(100)->create();
 
-
-
+        // $loop =20;
         // for ($i=0; $i <$loop ; $i++) {
         //   $values = array();
         //   Cgy::create([

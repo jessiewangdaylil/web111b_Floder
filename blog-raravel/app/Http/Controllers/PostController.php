@@ -49,14 +49,13 @@ class PostController extends Controller
     //         //$data['pic'] = $filename;
     //         $path = $file->storeAs('public/storage/pic',$fileName); //儲存至指定目錄
     //     }
-    }
 
 
 
 
 
 
-        return $request->all();
+        //return $request->all();
         //返回到Index 頁面:
         // return redirect(url(''));
 
