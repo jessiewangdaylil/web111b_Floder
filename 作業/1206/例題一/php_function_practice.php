@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <form name="form1" action="http://web111b.com:6080/作業/function.php" method="get" align="le">
+  <form name="form1" action="function.php" method="get" align="le">
     請選擇用餐時段<select name="eatMoment">
       <option value="早餐">早餐</option>
       <!--keyboard 中打option*4-->

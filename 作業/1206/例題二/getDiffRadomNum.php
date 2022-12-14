@@ -14,7 +14,6 @@
     &nbsp;請選擇範圍:<br>
     &nbsp;&nbsp;&nbsp;&nbsp;最大值<input type="number" name="max" style='width:50px;'><br>
     &nbsp;&nbsp;&nbsp;&nbsp;最小值<input type="number" name="min" style='width:50px;'><br>
-    <br>
     取得數量:<input type="number" name="amount" style='width:50px;'><br>
     &nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" value="取消">&nbsp;<input type="submit" value="送出">
   </form>
@@ -27,7 +26,32 @@
 
 
 <?php
+if (isset($_GET['max']) && isset($_GET['min']) && isset($_GET['amount'])&& !empty($_GET['max']) && !empty($_GET['min']) && !empty($_GET['amount'] ))
+{
+ if($_GET['max']-$_GET['min']+1 >= $_GET['amount'])
+ {
+   $arr = [];
+   $max = $_GET['max'];
+   $min = $_GET['min'];
+   $amount = $_GET['amount'];
+   $loop = 0;
+    while (count($arr)< $amount )
+    {
+      $temp = rand($min,$max);
+      if(!in_array($temp,$arr))
+      {
+        $arr[$loop] = $temp;
+        echo '第'.$loop+1 .'筆:'.$arr[$loop]."<br>";
+        $loop++;
+      };
+    };
 
+  }
+  else
+  {
+    echo '您輸入的取得數量超出範圍';
+  };
+};
 
 
 ?>
